@@ -1,7 +1,10 @@
-<h1>Edit article: <%= @article.id %></h1>
+<div class="container"> 
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <h1 class=" mt-2">Edit Blog</h1>
+    </div>
+  </div>
+  <hr>
+</div>
 
 <%= render 'form' %>
-
-<br>
-
-<%= link_to 'Cancel and return to articles listing', articles_path %>

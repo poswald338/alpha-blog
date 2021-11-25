@@ -30,4 +30,7 @@ html, body {
 
 #sticky-footer {
   flex-shrink: none;
+  z-index: 1;
+  position: sticky;
 }
+

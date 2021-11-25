@@ -1,9 +1,29 @@
-<h1>Showing article details</h1>
-<p> Title: <%= @article.title %></p>
-<p> Description: <%= @article.description %></p>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <h1 class=" mt-2"><%= @article.title %></h1>
+    </div>
+  </div>
+  <hr>
+</div>
 
-<br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card text-center mt-4 shadow bg-body rounded">
+        <div class="card-header fst-italic">
+          Author: Patrick Oswald
+        </div>
+        <div class="card-body">
+          <div class="card-text text-start"><%= simple_format(@article.description) %></div>
+          <%= link_to "Edit Blog", edit_article_path(@article), class: "btn btn-outline-primary" %>
+          <%= link_to 'Delete', article_path(@article), class: "btn btn-outline-danger", method: :delete, data: { confirm: "Are you sure?"} %>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Created <%= time_ago_in_words(@article.created_at) %> ago, edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?"} %> |
-<%= link_to 'Back to articles', articles_path %>
+

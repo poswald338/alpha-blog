@@ -1,27 +1,31 @@
-<% if @article.errors.any? %>
-  <h2>The followinig errors prevented the article from being saved</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li>
-        <%= msg %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <%= render 'shared/errors' %>
+      <%= form_with(model: @article, local: true) do |f| %>
+      <div class="form-container shadow rounded mt-4 mb-4 p-3 bg-dark">
+        <div class="mb-3">
+          <%= f.label :title, for: "title", class: "form-label fw-bold text-white-50" %>
+          <%= f.text_field :title, id: "title", class: "form-control", placeholder: "Title of Blog" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :description, for: "desc", class: "form-label fw-bold text-white-50" %>
+          <%= f.text_area :description, rows: 10, id: "desc", class: "form-control", placeholder: "Description of Blog" %>
+        </div>
+        <div class="d-flex">
+          <div class="flex me-auto">
+            <%= f.submit class: "btn btn-success" %>
+          </div>
+          <div class="flex">
+            <%= link_to "Back to Articles", articles_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= form_with(model: @article, local: true) do |f| %>
 
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
+ 
 
 <% end %>
