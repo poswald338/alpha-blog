@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row mt-2 mb-4">
+    <div class="col-12 d-flex justify-content-center">
+      <h1><%= @user.username %>'s Profile</h1>
+    </div>
+  </div>
+
+  <%= gravatar_for @user, size: 200 %>
+
+  <div class="row mt-5 mb-4">
+    <div class="col-12 d-flex justify-content-center">
+      <h3>Blogs</h3>
+    </div>
+  </div>
+</div>
+
+<%= render 'articles/article' %>
+
+
+
