@@ -18,7 +18,7 @@
         </div>
         <div class="d-flex">
           <div class="flex me-auto">
-            <%= f.submit "Sign Up", class: "btn btn-success" %>
+            <%= f.submit(@user.new_record? ? "Sign Up" : "Save Changes", class: "btn btn-success") %>
           </div>
           <div class="flex">
             <%= link_to "Back to Articles", articles_path, class: "btn btn-primary" %>
