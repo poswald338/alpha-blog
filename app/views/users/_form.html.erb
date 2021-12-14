@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <%= render 'shared/errors', obj: @user %>
+      <%= form_with(model: @user, local: true) do |f| %>
+      <div class="form-container shadow rounded mt-4 mb-4 p-3 bg-dark">
+        <div class="mb-3">
+          <%= f.label :username, for: "username", class: "form-label fw-bold text-white-50" %>
+          <%= f.text_field :username, id: "username", class: "form-control", placeholder: "Enter a username" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :email, for: "email", class: "form-label fw-bold text-white-50" %>
+          <%= f.email_field :email, id: "email", class: "form-control", placeholder: "Enter your email address" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :password, for: "password", class: "form-label fw-bold text-white-50" %>
+          <%= f.password_field :password, id: "password", class: "form-control", placeholder: "Enter a password" %>
+        </div>
+        <div class="d-flex">
+          <div class="flex me-auto">
+            <%= f.submit "Sign Up", class: "btn btn-success" %>
+          </div>
+          <div class="flex">
+            <%= link_to "Back to Articles", articles_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
+
+<% end %>
