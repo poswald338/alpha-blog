@@ -20,7 +20,11 @@
   </div>
 </div>
 
+<%= will_paginate @articles, class: "flickr_pagination" %>
+
 <%= render 'articles/article' %>
+
+<%= will_paginate @articles, class: "flickr_pagination mt-4 mb-4" %>
 
 
 
