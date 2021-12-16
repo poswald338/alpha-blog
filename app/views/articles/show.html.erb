@@ -3,15 +3,15 @@
       <h1 class=" mt-2"><%= @article.title %></h1>
     </div>
   </div>
-  <hr>
 </div>
 
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card text-center mt-4 shadow bg-body rounded">
+      <div class="card text-center mt-4 mb-4 shadow bg-body rounded">
         <div class="card-header fst-italic">
           Author: <%= @article.user.username %>
+          <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
         </div>
         <div class="card-body">
           <div class="card-text text-start"><%= simple_format(@article.description) %></div>
