@@ -1,55 +1,58 @@
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="ps-2 pe-2">
-        <%= link_to "ALPHA BLOG", root_path, class: "navbar-brand fw-bold", id: "logo" %>
-      </div>
-      <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="ps-2 pe-2">
+    <%= link_to "ALPHA BLOG", root_path, class: "navbar-brand fw-bold", id: "logo" %>
+  </div>
+  <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Blogs
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "View Blogs", articles_path, class: "dropdown-item" %>
-              <% if logged_in? %>
-                <%= link_to "Create Blog", new_article_path, class: "dropdown-item" %>
-              <% end %>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Bloggers", users_path, class: "nav-link" %>
-          </li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Blogs
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "View Blogs", articles_path, class: "dropdown-item" %>
           <% if logged_in? %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= current_user.username %>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
-                <%= link_to "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %>
-                <div class="dropdown-divider"></div>
-                <%= link_to 'Log Out', logout_path, class: "dropdown-item", method: :delete %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to 'Log In', login_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Sign Up', signup_path, class: "nav-link" %>
-            </li>
+            <%= link_to "Create Blog", new_article_path, class: "dropdown-item" %>
           <% end %>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-        <div class="d-flex align-items-end">
-          <input class="form-control me-sm-2 flex" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success me-2 my-2 my-sm-0 flex" type="submit">Search</button>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
-        </form>
-      </div>
-    </nav>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Bloggers", users_path, class: "nav-link" %>
+      </li>
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.username %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+            <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Delete Account', user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+        </li>
+        <li class="nav-item">                
+          <%= link_to 'Log Out', logout_path, class: "nav-link", method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Log In', login_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', signup_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+    <div class="d-flex align-items-end">
+      <input class="form-control me-sm-2 flex" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success me-2 my-2 my-sm-0 flex" type="submit">Search</button>
+    </div>
+    </form>
+  </div>
+</nav>
