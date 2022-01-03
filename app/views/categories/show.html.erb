@@ -4,4 +4,26 @@
       <h1>Category: <%= @category.name %></h1>
     </div>
   </div>
+  <hr>
 </div>
+
+<% if logged_in? && current_user.admin? %>
+    <div class="row mt-4 mb-4">
+      <div class="col-12 d-flex justify-content-center">
+        <%= link_to "Edit Category Name", edit_category_path(@category), class: "btn btn-outline-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row mt-4 mb-2">
+    <div class="col-12 d-flex justify-content-center">
+      <h2>Blogs</h2>
+    </div>
+  </div>
+</div>
+
+<%= will_paginate @articles, class: "flickr_pagination" %>
+
+<%= render 'articles/article' %>
+
+<%= will_paginate @articles, class: "flickr_pagination mt-4 mb-4" %>
