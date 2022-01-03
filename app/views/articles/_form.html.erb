@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-12 col-md-8">
       <%= render 'shared/errors', obj: @article %>
       <%= form_with(model: @article, local: true) do |f| %>
       <div class="form-container shadow rounded mt-4 mb-4 p-3 bg-dark">
@@ -11,6 +11,13 @@
         <div class="mb-3">
           <%= f.label :description, for: "desc", class: "form-label fw-bold text-white-50" %>
           <%= f.text_area :description, rows: 10, id: "desc", class: "form-control", placeholder: "Description of Blog" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :category, class: "form-label fw-bold text-white-50" %>
+          <br>
+          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+            <% cb.label(class: "text-white form-check form-check-inline form-check-label") {cb.check_box(class: "form-check-input") + cb.text } %>
+          <% end %>
         </div>
         <div class="d-flex">
           <div class="flex me-auto">
